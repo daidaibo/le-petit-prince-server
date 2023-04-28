@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私奔到森林</title>
+</head>
+<body>
+  <form action="test/upload/multiple" method="post" target="_blank" enctype="multipart/form-data">
+    <input type="text" name="text" value="123">
+    <input type="file" name="image1" accept="image/*" />
+    <input type="file" name="image2" accept="image/*" multiple="multiple" />
+    <input type="submit" value="submit" />
+  </form>
+  <ul>
+    <li>
+      <button id="login">登陆</button>
+    </li>
+  </ul>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const loginBtn = document.getElementById('login')
+    loginBtn.addEventListener('click', () => {
+      axios.post('/test/login', {
+        username: 'Bobo',
+        password: 'lucky0810'
+      }).then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.error(err)
+      })
+    })
+  </script>
+</body>
+</html>
